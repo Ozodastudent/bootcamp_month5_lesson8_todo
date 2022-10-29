@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+body {
+  background-color: #0f766dd5;
+  font-family: "Playfair Display", serif;
+}
+.box {
+  width: 100%;
+  max-width: 600px;
+}
+.list_item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(221, 218, 218);
+}
+.task_box_item {
+  display: flex;
+  align-items: center;
+}
+.checkbox_item {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.task_text {
+  margin-top: 13px;
+  margin-left: 15px;
+  font-size: 18px;
+}
+.delete_btn {
+  margin-right: 15px;
+}
+
+@media only screen and (max-width: 472px) {
+  .uncompleted_btn {
+    margin-top: 10px;
+  }
+}

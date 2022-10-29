@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Full</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="box mt-5 p-3 bg-light rounded-3 mx-auto shadow">
+          <h2 class="text-center">My ToDo List</h2>
+          <form
+            action="https://echo.htmlacademy.ru/"
+            class="form d-flex flex-column mt-4"
+            method="POST"
+          >
+            <div class="button_card d-flex flex-wrap">
+              <button class="btn btn-primary all_btn">
+                All
+                <strong>
+                  <span
+                    class="all_btn_text ms-2 px-2 bg-white text-dark rounded-2 text-center"
+                    >0</span
+                  >
+                </strong>
+              </button>
+              <button class="completed_btn btn btn-secondary ms-3 me-3">
+                Completed
+                <strong>
+                  <span
+                    class="completed_btn_text ms-2 px-2 bg-white text-dark rounded-2 text-center"
+                    >0</span
+                  >
+                </strong>
+              </button>
+              <button class="uncompleted_btn btn btn-warning">
+                Uncompleted
+                <strong>
+                  <span
+                    class="uncompleted_btn_text ms-2 px-2 bg-white text-dark rounded-2 text-center"
+                    >0</span
+                  >
+                </strong>
+              </button>
+            </div>
+            <div class="d-flex mt-4">
+              <input
+                type="text"
+                name="input_name"
+                class="input_todo form-control me-4"
+                placeholder="Enter your tasks"
+                autocomplete="off"
+                required
+              />
+              <button type="submit" class="btn_todo btn btn-success px-4">
+                Add
+              </button>
+            </div>
+          </form>
+          <div class="mt-5">
+            <ul class="list_todo list-unstyled"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
