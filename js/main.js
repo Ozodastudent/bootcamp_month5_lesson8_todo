@@ -7,7 +7,6 @@ const allBtnText = document.querySelector(".all_btn_text");
 const completedBtnText = document.querySelector(".completed_btn_text");
 const unCompletedBtnText = document.querySelector(".uncompleted_btn_text");
 
-const todos = [];
 let initialId = 0;
 const renderTodo = function (array, item) {
   item.innerHTML = "";
@@ -70,6 +69,10 @@ const formTypes = {
 let formType = formTypes.SAVE;
 let editingId = null;
 
+const localTodos = JSON.parse(window.localStorage.getItem("todos"));
+const todos = localTodos || [];
+renderTodo(todos, listEl);
+
 formEl.addEventListener("submit", function (evt) {
   evt.preventDefault();
   if (formType === formTypes.SAVE) {
@@ -79,6 +82,7 @@ formEl.addEventListener("submit", function (evt) {
       isCompleted: false,
     });
     renderTodo(todos, listEl);
+    window.localStorage.setItem("todos", JSON.stringify(todos));
     formEl.reset();
   }
   if (formType === formTypes.EDIT) {
@@ -91,6 +95,7 @@ formEl.addEventListener("submit", function (evt) {
       return todo.id === obj.id;
     });
     todos.splice(editingFoundIndex, 1, obj);
+    window.localStorage.setItem("todos", JSON.stringify(todos));
     renderTodo(todos, listEl);
     formType = formTypes.SAVE;
     btnEl.textContent = "Add";
@@ -108,6 +113,7 @@ listEl.addEventListener("click", function (evt) {
       (todo) => todo.id === deletedBtnId
     );
     todos.splice(deletedFindIndex, 1);
+    window.localStorage.setItem("todos", JSON.stringify(todos));
     console.log(todos);
     renderTodo(todos, listEl);
   }
@@ -131,6 +137,7 @@ listEl.addEventListener("click", function (evt) {
       return todo.id === checkBoxId;
     });
     checkBoxFound.isCompleted = !checkBoxFound.isCompleted;
+    window.localStorage.setItem("todos", JSON.stringify(todos));
     console.log(checkBoxFound);
     renderTodo(todos, listEl);
   }
